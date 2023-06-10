@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+	body{
+		box-sizing: border-box;
+		font-family: Roboto, sans-serif;
+		background: #394056;
+		padding: 50px 10px;
+	}
+
+	div input{
+		box-sizing: border-box;
+	}
+
+	table{
+		width: 100%;
+	}
+
+	button{
+		text-decoration: none;
+		outline: none;
+		display: inline-block;
+		height: 45px;
+		padding: 0 22px;
+		line-height: 40px;
+		border-radius: 45px;
+		margin: 10px 20px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 11px;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-weight: 600;
+		color: #524f4e;
+		background: white;
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+		transition: .3s;
+		cursor: pointer;
+	}
+
+	.footer td{
+			text-align: center;
+		border-top: 1px solid #394056;
+		padding: 10px 0 12px;
+	}
+
+	.col-6{
+		display: inline-block;
+		float: left;
+		width: 50%;
+		padding: 0 25px;
+		box-sizing: border-box;
+	}
+
+	.col-12{
+		display: inline-block;
+		float: left;
+		width: 100%;
+		padding: 0 25px;
+		box-sizing: border-box;
+	}
+
+	table tr:nth-child(odd){
+		background: #fff;
+	}
+
+	table tr:nth-child(even){
+		background: #f1f1f1;
+	}
+
+	table .head{
+		border: none;
+		color: #000;
+		font-size: 13px;
+		text-align: center;
+		font-weight: 500;
+		border-bottom: 5px solid #000!important;
+	}
+
+	table .head td{
+		padding: 10px 10px;
+		border-bottom: 2px solid #394056;
+		font-size: 14px;
+	}
+
+	table tr:last-child, .table_3 td:last-child{
+		border-right: none;
+	}
+
+	table tr, table td{
+		border: none;
+		border-right: 1px solid #394056;
+		padding: 2px 10px 4px;
+		font-size: 15px;
+		height: 38px;
+		box-sizing: border-box;
+	}
+
+	input{
+		border-radius: 10px;
+		border: 1px solid #a1a1a1;
+		height: 22px;
+		margin: -5px 0 -5px 0;
+		max-width: 104px;
+		min-width: 60px;
+		outline: none;
+		text-align: center;
+	}
+
+	select{
+		border-radius: 5px;
+		border: 1px solid #a1a1a1;
+		font-size: 13px;
+		height: 24px;
+		margin: 0px 0 0px 0;
+		outline: none;
+		padding: 0 5px;
+	}
+
+	.size_3{
+			margin-bottom: 40px;
+		}
+
+	.table_1{
+		border: 1px solid #fff;
+	}
+
+	.table_1 tr:last-child, .table_1 td:last-child{
+		border-right: none;
+	}
+
+	.table_1 .head td{
+			border-top: 1px solid #394056;
+			padding: 10px 10px;
+	}
+
+	.table_1 button{
+		background-image: linear-gradient(to right, #e47415, #e78838, #e18a41, #e37a21);
+		box-shadow: 0px 0px 14px 0 rgb(0 0 0 / 25%);
+		color: #fff;
+		border: 1px solid #914302;
+	}
+
+	.title_1{
+		padding: 11px 0;
+		text-align: center;
+		background: #e47415;
+		border-radius: 7px 7px 0 0;
+		margin-bottom: 5px;
+		color: #fff;
+		text-shadow: 1px 0px 0px #000;
+	}
+
+	.table_2{
+		border: 1px solid #fff;
+	}
+
+	.table_2 tr:last-child, .table_2 td:last-child{
+		border-right: none;
+	}
+
+	.table_2 .head td{
+			padding: 10px 10px;
+	}
+
+	.table_2 button{
+		background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+		box-shadow: 0 0px 14px 0 rgba(23, 168, 108, 0.25);
+		color: #fff;
+		border: 1px solid #007240;
+		max-width: 315px;
+		width: 100%;
+	}
+
+	.table_2 tr, .table_2 td{
+		border-right: 1px solid #394056;
+	}
+
+	.title_2{
+		padding: 11px 0;
+		text-align: center;
+		background: #0da462;
+		border-radius: 7px 7px 0 0;
+		margin-bottom: 5px;
+		color: #fff;
+		text-shadow: 1px 0px 0px #000;
+	}
+
+	.table_2 .head p{
+		margin: 0;
+	}
+
+	.table_3 .head p{
+		margin: 0;
+	}
+
+	.title_3{
+		padding: 11px 0;
+		text-align: center;
+		background: #1567e4;
+		border-radius: 7px 7px 0 0;
+		margin-bottom: 5px;
+		color: #fff;
+		text-shadow: 1px 0px 0px #000;
+	}
+
+	@media(max-width: 1300px){
+		.col-6{
+			width: 100%;
+			float: none;
+			margin-bottom: 15px;
+		}
+
+		.table_2 tr, .table_2 td{
+			text-align: center;
+		}
+	}
+
+	@media(max-width: 790px){
+		.size_2, .size_3 {
+			overflow: auto;
+			position: relative;
+		}
+		
+		.size_2 table, .size_3 table {
+			display: inline-block;
+			vertical-align: top;
+			max-width: 100%;
+			overflow-x: auto;
+			white-space: nowrap;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+
+	@media(max-width: 450px){
+		.size_1 {
+			overflow: auto;
+			position: relative;
+		}
+
+		.size_1 table {
+			display: inline-block;
+			vertical-align: top;
+			max-width: 100%;
+			overflow-x: auto;
+			white-space: nowrap;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+</style>
+<body>
+	<div class="col-6">
+		<div class="size_1">
+			<h4 class="title_1">Опис часткових критеріїв</h4>
+			<table  cellspacing="0" class="table_1">
+				<tbody>
+					<tr>
+						<td colspan="3">Число критеріїв m = 5</td>
+					</tr>
+					<tr>
+						<td colspan="3">Число векторів n = 5</td>
+					</tr>
+					<tr>
+						<td colspan="3">Швидкість завантаження, Мбит/с</td>
+					</tr>
+					<tr>
+						<td colspan="3">Швидкість скачування, Мбит/с</td>
+					</tr>
+					<tr>
+						<td colspan="3">Затримка, мс</td>
+					</tr>
+					<tr>
+						<td colspan="3">Вартість, грн</td>
+					</tr>
+					<tr>
+						<td colspan="3">Швидкість реагування на атаку, с</td>
+					</tr>
+					<tr>
+						<td colspan="3">Характеристики критеріїв</td>
+					</tr>
+					<tr class="head">
+						<td style="text-align:center">Номер критерію</td>
+						<td style="text-align:center">Вид єкстремума</td>
+						<td style="text-align:center">Вага</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">1</td>
+						<td style="text-align:center">
+							<div>
+								<select class="kindOfExtreme" required="required" onchange="checkType(this)"> 
+									<option value="max">Оберіть значення</option>
+									<option value="max">max</option>
+									<option value="min">min</option>
+								</select>
+							</div>
+						</td>
+						<td style="text-align:center"><div><input class="inputNumber" name="weights" value="0.2" oninput="restrictInputCharacters(this)" style='width: 100%' required></div></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">2</td>
+						<td style="text-align:center">
+							<div>
+								<select class="kindOfExtreme" required="required" onchange="checkType(this)"> 
+									<option value="max">Оберіть значення</option>
+									<option value="max">max</option>
+									<option value="min">min</option>
+								</select>
+							</div>
+						</td>
+						<td style="text-align:center"><div><input class="inputNumber" name="weights" value="0.2" oninput="restrictInputCharacters(this)" style='width: 100%' required></div></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">3</td>
+						<td style="text-align:center">
+							<div>
+								<select class="kindOfExtreme" required="required" onchange="checkType(this)"> 
+									<option value="min">Оберіть значення</option>
+									<option value="max">max</option>
+									<option value="min">min</option>
+								</select>
+							</div>
+						</td>
+						<td style="text-align:center"><div><input class="inputNumber" name="weights" value="0.2" oninput="restrictInputCharacters(this)" style='width: 100%' required></div></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">4</td>
+						<td style="text-align:center">
+							<div>
+								<select class="kindOfExtreme" required="required" onchange="checkType(this)"> 
+									<option value="min">Оберіть значення</option>
+									<option value="max">max</option>
+									<option value="min">min</option>
+								</select>
+							</div>
+						</td>
+						<td style="text-align:center"><div><input class="inputNumber" name="weights" value="0.1"  oninput="restrictInputCharacters(this)" style='width: 100%' required></div></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">5</td>
+						<td style="text-align:center">
+							<div>
+								<select class="kindOfExtreme" required="required" onchange="checkType(this)"> 
+									<option value="min">Оберіть значення</option>
+									<option value="max">max</option>
+									<option value="min">min</option>
+								</select>
+							</div>
+						</td>
+						<td style="text-align:center"><div><input class="inputNumber"  name="weights" value="0.3" oninput="restrictInputCharacters(this)" style='width: 100%' required></div></td>
+					</tr>
+					<tr class="footer">
+						<td colspan="3" style="text-align:center">
+							<button type="button" name="checkTheTable#1" onclick="checkValuesInFirstTable()">Перевірити дані с таблиці №1</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="size_2">
+			<h4 class="title_2">Вихідні дані задачі БКО</h4>
+			<table cellspacing="0" class="table_2">
+				<tbody>
+					<tr class="head">
+						<td>
+							<p>Провайдер</p>
+						</td>
+						<td>
+							<p>Швидкість завантаження, Мбит/с</p>
+						</td>
+						<td>
+							<p>Швидкість скачування, Мбит/с</p>
+						</td>
+						<td>
+							<p>Затримка, мс</p>
+						</td>
+						<td>
+							<p>Вартість, грн</p>
+						</td>
+						<td>
+							<p>Швидкість реагування на атаку, с</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:left">Київстар</td>
+						<td><div><input class="inputNumber" name="speedOfDownload" id ="kyivstar" value="42.56"  oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name= "speedOfUpload" id ="kyivstar" value="46.67" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "ping" id ="kyivstar" value="34" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "costs" id ="kyivstar" value="250" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "speedOfAttack" id ="kyivstar" value="5" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">Укртелеком</td>
+						<td><div><input class="inputNumber" name="speedOfDownload" id ="ukrTelecom" value="11.24" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name= "speedOfUpload" id ="ukrTelecom" value="6.1" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "ping" id ="ukrTelecom" value="65" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "costs" id ="ukrTelecom" value="260" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "speedOfAttack" id ="ukrTelecom" value="20" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+					</tr>
+					<tr>	
+						<td style="text-align:left">Triolan</td>
+						<td><div><input class="inputNumber" name="speedOfDownload" id ="triolan"  value="54.56" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name= "speedOfUpload" id ="triolan"  value="56.48" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "ping" id ="triolan" value="31" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "costs" id ="triolan" value="99" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "speedOfAttack" id ="triolan" value="120" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">Volia</td>
+						<td><div><input class="inputNumber" name="speedOfDownload" id ="volia" value="45.45" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name= "speedOfUpload" id ="volia" value="27.8" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "ping" id ="volia" value="32" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "costs" id ="volia" value="150" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "speedOfAttack" id ="volia" value="90" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+					</tr>
+					<tr>
+						<td style="text-align:left">Datagroup</td>
+						<td><div><input class="inputNumber" name="speedOfDownload" id ="datagroup" value="31.78" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name= "speedOfUpload" id ="datagroup" value="32.6" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "ping" id ="datagroup" value="60" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "costs" id ="datagroup" value="200" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+						<td><div><input class="inputNumber" name = "speedOfAttack" id ="datagroup" value="60" oninput="restrictInputCharacters(this)" style='width: 100%'></div></td>
+					</tr>
+					<tr class="footer">
+						<td colspan="6" style="text-align:center">
+							<button type="button" name="checkTheTable#1" onclick="checkValuesInSecondTable()">Розрахувати</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="size_3"	>
+			<h4 class="title_3">Результат рішення задачі БКО</h4>
+			<table cellspacing="0" class="table_3">
+				<tbody>
+					<tr class="head">
+						<td>
+							<p>Провайдер</p>
+						</td>
+						<td>
+							<p>Швидкість завантаження, Мбит/с</p>
+						</td>
+						<td>
+							<p>Швидкість скачування, Мбит/с</p>
+						</td>
+						<td>
+							<p>Затримка, мс</p>
+						</td>
+						<td>
+							<p>Вартість, грн</p>
+						</td>
+						<td>
+							<p>Швидкість реагування на атаку, с</p>
+						</td>
+						<td>
+							<p>Qi, При заданих вагах аддітивних критеріїв</p>
+						</td>
+						<td>
+							<p>Qi, При відстутності інформації о вагах аддітивних критеріїв</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Київстар</td>
+						<td id="kyivstarResult-1"></td>
+						<td id="kyivstarResult-2"></td>
+						<td id="kyivstarResult-3"></td>
+						<td id="kyivstarResult-4"></td>
+						<td id="kyivstarResult-5"></td>
+						<td id="kyivstarResult-6"></td>
+						<td id="kyivstarResult-7"></td>
+					</tr>
+					<tr>
+						<td>Укртелеком</td>
+						<td id="ukrTelecomResult-1"></td>
+						<td id="ukrTelecomResult-2"></td>
+						<td id="ukrTelecomResult-3"></td>
+						<td id="ukrTelecomResult-4"></td>
+						<td id="ukrTelecomResult-5"></td>
+						<td id="ukrTelecomResult-6"></td>
+						<td id="ukrTelecomResult-7"></td>
+					</tr>
+					<tr>
+						<td>Triolan</td>
+						<td id="trioanResult-1"></td>
+						<td id="trioanResult-2"></td>
+						<td id="trioanResult-3"></td>
+						<td id="trioanResult-4"></td>
+						<td id="trioanResult-5"></td>
+						<td id="trioanResult-6"></td>
+						<td id="trioanResult-7"></td>
+					</tr>
+					<tr>
+						<td>Volia</td>
+						<td id="voliaResult-1"></td>
+						<td id="voliaResult-2"></td>
+						<td id="voliaResult-3"></td>
+						<td id="voliaResult-4"></td>
+						<td id="voliaResult-5"></td>
+						<td id="voliaResult-6"></td>
+						<td id="voliaResult-7"></td>
+					</tr>
+					<tr>
+						<td>Datagroup</td>
+						<td id="datagroupResult-1"></td>
+						<td id="datagroupResult-2"></td>
+						<td id="datagroupResult-3"></td>
+						<td id="datagroupResult-4"></td>
+						<td id="datagroupResult-5"></td>
+						<td id="datagroupResult-6"></td>
+						<td id="datagroupResult-7"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script>
+		class Calculate {
+			static round(value) {
+				return Number(String((value * 100) / 100).slice(0,5));
+			}
+		}
+
+		function checkValuesInFirstTable(isAlertNeed = true) {
+			const selects = document.getElementsByClassName("kindOfExtreme");
+			const inputs = document.getElementsByClassName("inputNumber");
+			let sum = 0;
+			let isValid = true;
+		
+			for (let i = 0; i < selects.length; i++) {
+				if (selects[i].value === "") {
+					selects[i].style.borderColor = "red";
+					isValid = false;
+				} else {
+					selects[i].style.borderColor = "";
+				}
+			}
+
+			for (let j = 0; j < inputs.length; j++) {
+				const input = inputs[j];
+				input.value = input.value.replace(/[^0-9.,]/g, "");
+		
+				if (input.hasAttribute("required")) {
+					if (input.value === "") {
+						input.style.borderColor = "red";
+						isValid = false;
+					} else {
+						input.style.borderColor = "";
+						sum += parseFloat(input.value.replace(",", "."));
+					}
+				}
+			}
+			console.log(sum);
+			if (Calculate.round(sum) !== 1) {
+				isValid = false;
+				for (let k = 0; k < inputs.length; k++) {
+					const requiredInput = inputs[k];
+					if (requiredInput.hasAttribute("required")) {
+						requiredInput.style.borderColor = "red";
+					}
+				}
+			}
+		
+			if(isValid && isAlertNeed) {
+				alert('Дані в таблиці 1 вірні!');
+			} else if(!isValid && !isAlertNeed) {
+				return false;
+			}
+		}
+		
+		function checkType(select) {
+			if (select.value === "") {
+				select.style.borderColor = "red";
+			} else {
+				select.style.borderColor = "";
+			}
+		}
+
+		function restrictInputCharacters(input) {
+			input.value = input.value.replace(/[^0-9.,]/g, "");
+		}
+		
+		function checkValuesInSecondTable() {
+			const check = checkValuesInFirstTable(false);
+
+			if (check === false) {
+				return;
+			}
+
+			const mapperResult = [
+				'kyivstarResult',
+				'ukrTelecomResult',
+				'trioanResult',
+				'voliaResult',
+				'datagroupResult'
+			];
+
+			mapperResult.forEach(item => {
+				document.getElementById(`${item}-6`).style = '';
+				document.getElementById(`${item}-7`).style = '';
+			})
+
+		
+			const mapperValues = ['speedOfDownload', 'speedOfUpload', 'ping', 'costs', 'speedOfAttack'];
+			const kindOfExtremeInputs = [...document.getElementsByClassName('kindOfExtreme')];
+			const kindOfExtremeValues = kindOfExtremeInputs.map(item => item.value);
+
+			for (let k = 0; k < mapperValues.length; k++) {
+				const inputs = [...document.getElementsByName(mapperValues[k])];
+				const values = inputs.map(item => Number(item.value));
+				const max = Math.max(...values);
+				const min = Math.min(...values);
+				const result = [];
+
+				for (let i = 0; i < values.length; i++) {
+					if (kindOfExtremeValues[k] === 'max') {
+						result.push(Calculate.round((values[i] - min) / (max - min)));
+					} else {
+						result.push(Calculate.round((values[i] - max) / (min - max)));
+					}
+				}
+		
+				for (let i = 0; i < mapperResult.length; i++) {
+					const a = `${mapperResult[i]}-${k+1}`;
+					document.getElementById(`${mapperResult[i]}-${k+1}`).innerHTML = result[i];
+				}
+			}
+
+			const weightInputs = [...document.getElementsByName('weights')];
+			const weights = weightInputs.map(item => Number(item.value));
+
+			const valuesWithWeight = [];
+			const valuesWithoutWeight = [];
+
+			for (let i = 0; i < mapperResult.length; i++) {
+				const valuesResult = [
+					Number(document.getElementById(`${mapperResult[i]}-1`).innerText),
+					Number(document.getElementById(`${mapperResult[i]}-2`).innerText),
+					Number(document.getElementById(`${mapperResult[i]}-3`).innerText),
+					Number(document.getElementById(`${mapperResult[i]}-4`).innerText),
+					Number(document.getElementById(`${mapperResult[i]}-5`).innerText)
+				];
+		
+				let result = 0;
+				let resultWithoutWeight = 0;
+				valuesResult.forEach((value, index) => {
+					result= Calculate.round(result + (Calculate.round(value * weights[index])));
+					resultWithoutWeight = Calculate.round(resultWithoutWeight + Calculate.round(value * 0.2));
+				});
+
+				valuesWithWeight.push({ mapper: mapperResult[i], result });
+				valuesWithoutWeight.push({ mapper: mapperResult[i], resultWithoutWeight });
+
+				document.getElementById(`${mapperResult[i]}-6`).innerHTML = result;
+				document.getElementById(`${mapperResult[i]}-7`).innerHTML = resultWithoutWeight;
+			}
+
+			const mapResultValues = valuesWithWeight.map(e => e.result);
+			const mapResultValuesWithoutWeight = valuesWithoutWeight.map(e => e.resultWithoutWeight);
+
+			console.log(valuesWithWeight);
+			console.log(valuesWithoutWeight);
+			
+
+			const bestWithWeight = valuesWithWeight.findIndex(elem => elem.result === Math.max(...mapResultValues));
+			const bestWithoutWeight = valuesWithoutWeight.findIndex(elem => elem.resultWithoutWeight === Math.max(...mapResultValuesWithoutWeight));
+			
+			document.getElementById(`${mapperResult[bestWithWeight]}-6`).style.backgroundColor = '#0da462';
+			document.getElementById(`${mapperResult[bestWithoutWeight]}-7`).style.backgroundColor = '#0da462';
+		}
+	</script>
+</body>
+</html>
